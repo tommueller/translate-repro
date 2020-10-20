@@ -1,27 +1,10 @@
 # TranslateRepro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
+Run `npm run test` to execute the tests. Please comment / uncomment lines 10-12 in `app.component.ts` depending on instructions to see the following behavior:
 
-## Development server
+1. **only line 10 is active**: you see `TypeError: Cannot read property 'translate' of undefined`
+2. **line 10 and line 12 are active**: no error, but test fails, because key is not translated
+3. **line 10 and line 11 are ative**: no error, but test fails, because key is not translated
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+So the error does actually go away, if the `TranslocoService` is imported in the component, even though it is not used.
+Nonetheless, the translation is not working, even though when running the application, you will see that the translation does work.
